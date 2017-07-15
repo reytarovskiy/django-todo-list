@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load staticfiles %}
+{% block title %}Title{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'app/css/todo.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="row todo-form">
+        <form action="{% url 'create_todo' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-10">{{ form.todo }}</div>
+            <div class="col-md-2"><input type="submit" class="btn btn-success" value="Create"></div>
+        </form>
+    </div>
+    {% for todo in todos %}
+        <div class="todo row {% if todo.is_done %}todo-success{% endif %}">
+            <div class="todo-text col-md-7">
+                <p>
+                    {% if todo.is_done %}
+                        <strike>{{ todo.todo }}</strike>
+                    {% else %}
+                        {{ todo.todo }}
+                    {% endif %}
+                </p>
+            </div>
+            <div class="buttons col-md-5">
+                <div class="col-md-10">
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'set_done' id=todo.id value=1 %}" class="btn btn-success btn-sm">Done</a>
+                        <a href="{% url 'set_done' id=todo.id value=0 %}" class="btn btn-danger btn-sm">No</a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a href="{% url 'remove' id=todo.id %}" class="btn btn-link"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
