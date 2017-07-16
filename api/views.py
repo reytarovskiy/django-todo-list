@@ -4,7 +4,7 @@ from app.models import Todo
 
 
 class TodoList(generics.ListCreateAPIView):
-    queryset = Todo.objects.all()
+    queryset = Todo.objects.order_by('is_done').all()
     model = Todo
     serializer_class = TodoSerializer
 

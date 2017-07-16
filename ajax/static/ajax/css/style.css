@@ -1,0 +1,57 @@
+.todo-form {
+    margin-bottom: 15px;
+}
+
+.todo {
+    font-size: 18pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+    border-bottom: 1px solid #8baabd;
+    cursor: pointer;
+}
+
+.todo-success {
+    text-decoration: line-through;
+}
+
+.content {
+    display: none;
+}
+
+#load-page {
+    position: fixed;
+    left: 39%;
+    top: 25%;
+}
+
+#load-page img {
+    width: 281px;
+    height: 115px;
+}
+
+#load-page p {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 13pt;
+}
+
+#ajax-error {
+    display: none;
+}
+
+.is-done {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    display: none;
+}
+
+input[type=checkbox] {
+    margin-top: 11px;
+}
+.todo-text {
+    margin-left: 15px;
+}
+
+.remove-block {
+    margin-left: 30px;
+}
